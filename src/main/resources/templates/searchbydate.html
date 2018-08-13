@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container" style="background-color:#5bc0de">
+    <table class="table">
+        <p>This is a MySQL DB and changes will be persisted.</p>
+        <h2>Car available on that date</h2>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Start Date</th>
+        </tr>
+        <tr th:each="car : ${carlist2}">
+            <td th:text="${car.id}">Car ID</td>
+            <td th:text="${car.name}">Car Name</td>
+            <td th:text="${car.date}">Car Date</td>
+        </tr>
+    </table>
+    <a th:href="${'/cars'}" class="btn btn-warning">Home</a>
+</div>
+</body>
+</html>
