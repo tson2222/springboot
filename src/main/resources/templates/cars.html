@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Car DB</title>
     <link rel="icon" type="image/png" href="images\car11.png">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"
+          id="bootstrap-css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css"
+          rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/locale/af.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
 </head>
 <body>
 
@@ -31,9 +34,9 @@
             <td th:text="${car.name}">Car Name</td>
             <td th:text="${car.speed}">Car Speed</td>
             <td th:text="${car.date}">Car DateRented</td>
-            <td><a class="btn btn-default" href="#" th:href="${'/car/' + car.id}">View</a> </td>
-            <td><a class="btn btn-default" href="#" th:href="${'/car/edit/' + car.id}">Edit</a> </td>
-            <td><a class="btn btn-default" href="#" th:href="${'/car/delete/' + car.id}">Delete</a> </td>
+            <td><a class="btn btn-default" href="#" th:href="${'/car/' + car.id}">View</a></td>
+            <td><a class="btn btn-default" href="#" th:href="${'/car/edit/' + car.id}">Edit</a></td>
+            <td><a class="btn btn-default" href="#" th:href="${'/car/delete/' + car.id}">Delete</a></td>
         </tr>
     </table>
     <a th:href="${'/car/new'}" class="btn btn-warning">New</a>
@@ -49,7 +52,7 @@
             <form th:action="@{/searchbydate}" th:object="${car}" method="get">
                 <div class="form-group">
                     <div class='input-group date' id='datepicker1'>
-                        <input type='text' class="form-control" name="date" />
+                        <input type='text' class="form-control" name="date"/>
                         <span class="input-group-addon">
                                     <button type="submit" class="btn btn-default">Submit</button>
 		                    </span>
@@ -59,8 +62,9 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
-<script >
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+<script>
     $(function () {
         $('#datepicker1').datepicker({
             format: "dd-mm-yyyy",

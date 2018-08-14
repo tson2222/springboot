@@ -2,13 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Available Cars</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container" style="background-color:#5bc0de">
     <table class="table">
-        <p>This is a MySQL DB and changes will be persisted.</p>
-        <h2>Car available on that date</h2>
+        <h2>Cars available on that date</h2>
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -20,7 +21,7 @@
             <td th:text="${car.date}">Car Date</td>
         </tr>
     </table>
-    <a th:href="${'/cars'}" class="btn btn-warning">Home</a>
+    <a th:href="${'/cars'}" class="btn-danger" >Home</a>
 </div>
 </body>
 </html>

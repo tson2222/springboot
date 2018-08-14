@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
+import java.util.List;
 
 @Controller
 public class WidgetController {
@@ -39,7 +40,9 @@ public class WidgetController {
 
     @GetMapping("/searchbydate")
     public String dateTest(@RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate date, Model model) {
-        model.addAttribute("carlist2", carRepository.findAllByDate(date));
+
+        List<Car> carList = carRepository.findAllByDate(date.plusDays(1));
+        model.addAttribute("carlist2", carList);
         return "searchbydate";
     }
 
@@ -76,7 +79,7 @@ public class WidgetController {
     }
 
     @GetMapping("/car/delete/{id}")
-    public String deleteWidget(@PathVariable  Long id) {
+    public String deleteWidget(@PathVariable Long id) {
         carRepository.deleteById(id);
         return "redirect:/cars";
     }

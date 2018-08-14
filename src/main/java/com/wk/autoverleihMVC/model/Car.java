@@ -1,5 +1,7 @@
 package com.wk.autoverleihMVC.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +16,7 @@ public class Car {
     private Long id;
     private String name;
     private Integer speed;
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate date;
 
     public Car() {
