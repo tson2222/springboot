@@ -34,6 +34,7 @@ public class WidgetController {
 
     @PostMapping("/car")
     public String createCar(Car car) {
+        car.setDate(car.getDate().plusDays(1));
         carRepository.save(car);
         return "redirect:/car/" + car.getId();
     }
