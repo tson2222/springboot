@@ -34,6 +34,7 @@ public class WidgetController {
 
     @PostMapping("/car")
     public String createCar(Car car) {
+        car.setDate(car.getDate().plusDays(1));
         carRepository.save(car);
         return "redirect:/car/" + car.getId();
     }
@@ -67,19 +68,19 @@ public class WidgetController {
     }
 
     @GetMapping("/car/edit/{id}")
-    public String editWidget(@PathVariable Long id, Model model) {
-        model.addAttribute("car", carRepository.findById(id));
+    public String editCar(@PathVariable Long id, Model model) {
+        model.addAttribute("car", carRepository.findById(id).orElse(new Car()));
         return "carform";
     }
 
     @PostMapping("/car/{id}")
-    public String updateWidget(Car car) {
+    public String updateCar(Car car) {
         carRepository.save(car);
         return "redirect:/car/" + car.getId();
     }
 
     @GetMapping("/car/delete/{id}")
-    public String deleteWidget(@PathVariable Long id) {
+    public String deleteCar(@PathVariable Long id) {
         carRepository.deleteById(id);
         return "redirect:/cars";
     }
