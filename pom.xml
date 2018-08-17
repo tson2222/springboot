@@ -9,7 +9,6 @@
 	<packaging>jar</packaging>
 
 	<name>spring5mvc-example</name>
-	<speed>Demo project for Spring Boot</speed>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

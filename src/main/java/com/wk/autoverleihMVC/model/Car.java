@@ -1,5 +1,6 @@
 package com.wk.autoverleihMVC.model;
 
+import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
@@ -11,22 +12,16 @@ import java.time.LocalDate;
 @Entity //tells JPA to create a table in the DB named "car"
 public class Car {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Long id;
     private String name;
+    @Range(min = 1,max = 300)
     private Integer speed;
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate date;
 
     public Car() {
-    }
-
-    public Car(Long id, String name, Integer speed, LocalDate date) {
-        this.id = id;
-        this.name = name;
-        this.speed = speed;
-        this.date = date;
     }
 
     public LocalDate getDate() {
