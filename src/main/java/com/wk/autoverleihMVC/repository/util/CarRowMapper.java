@@ -13,7 +13,7 @@
 //		Car car = new Car();
 //		car.setId(rs.getLong("id"));
 //		car.setName(rs.getString("name"));
-//		//car.setDate(rs.get("date"));
+//		//car.setStartdate(rs.get("date"));
 //		return car;
 //	}
 //}

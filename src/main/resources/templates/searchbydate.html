@@ -14,11 +14,13 @@
             <th>ID</th>
             <th>Name</th>
             <th>Start Date</th>
+            <th>End Date</th>
         </tr>
-        <tr th:each="car : ${carlist2}">
+        <tr th:each="car : ${carlist}">
             <td th:text="${car.id}">Car ID</td>
             <td th:text="${car.name}">Car Name</td>
-            <td th:text="${car.date}">Car Date</td>
+            <td th:text="${car.startdate}">Car Date</td>
+            <td th:text="${car.enddate}">Car Date</td>
         </tr>
     </table>
     <a th:href="${'/cars'}" class="btn btn-success">Home</a>

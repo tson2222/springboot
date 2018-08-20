@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDate;
 
-@Entity //tells JPA to create a table in the DB named "car"
+@Entity
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,17 +19,27 @@ public class Car {
     @Range(min = 1,max = 300)
     private Integer speed;
     @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private LocalDate date;
+    private LocalDate startdate;
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    private LocalDate enddate;
 
     public Car() {
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDate getStartdate() {
+        return startdate;
     }
 
-    public void setDate(LocalDate d) {
-        this.date = d;
+    public void setStartdate(LocalDate d) {
+        this.startdate = d;
+    }
+
+    public LocalDate getEnddate() {
+        return enddate;
+    }
+
+    public void setEnddate(LocalDate enddate) {
+        this.enddate = enddate;
     }
 
     public Long getId() {

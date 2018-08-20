@@ -10,8 +10,8 @@ import java.util.List;
 
 public interface CarRepository extends CrudRepository<Car, Long> {
 
-    @Query("select c from Car c where NOT date = :date")
-    List<Car> findAllByDate(@Param("date") LocalDate date);
+    @Query("select startdate,enddate from Car c")
+    List<Car> findAllByDate(@Param("startdate") LocalDate date);
 
 }
 

@@ -18,13 +18,14 @@
 
 <div class="container" style="background-color:#5bc0de">
     <table class="table">
-        <p>This is a MySQL DB and changes will be persisted.</p>
+        <img src="/images/mysql-logo-filled.png" height="75" width="75"/>
         <h2>Car Database</h2>
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Speed</th>
             <th>Start Date</th>
+            <th>End Date</th>
             <th>View</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -33,7 +34,8 @@
             <td th:text="${car.id}">Car ID</td>
             <td th:text="${car.name}">Car Name</td>
             <td th:text="${car.speed}">Car Speed</td>
-            <td th:text="${car.date}">Car DateRented</td>
+            <td th:text="${car.startdate}">Car DateRented</td>
+            <td th:text="${car.enddate}">Car DateRented</td>
             <td><a class="btn btn-default" href="#" th:href="${'/car/' + car.id}">View</a></td>
             <td><a class="btn btn-default" href="#" th:href="${'/car/edit/' + car.id}">Edit</a></td>
             <td><a class="btn btn-default" href="#" th:href="${'/car/delete/' + car.id}">Delete</a></td>
@@ -45,14 +47,22 @@
 <div class="container">
 
     <div class="row">
-        <h2>Input date to see available cars</h2>
+        <h3>See which cars are available for a specific time frame </h3>
     </div>
     <div class="row">
         <div class='col-sm-6'>
+            <h5>Input the date you want to start renting your car</h5>
             <form th:action="@{/searchbydate}" th:object="${car}" method="get">
                 <div class="form-group">
                     <div class='input-group date' id='datepicker1'>
-                        <input type='text' class="form-control" name="date"/>
+                        <input type='text' class="form-control" name="startdate"/>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    <h5>Input the date you want to end renting your car</h5>
+                    <div class='input-group date' id='datepicker2'>
+                        <input type='text' class="form-control" name="enddate"/>
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -68,6 +78,22 @@
 <script>
     $(function () {
         $('#datepicker1').datepicker({
+            format: "dd-mm-yyyy",
+            autoclose: true,
+            todayHighlight: true,
+            showOtherMonths: true,
+            selectOtherMonths: true,
+            autoclose: true,
+            changeMonth: true,
+            changeYear: true,
+            orientation: "button"
+        });
+    });
+</script>
+
+<script>
+    $(function () {
+        $('#datepicker2').datepicker({
             format: "dd-mm-yyyy",
             autoclose: true,
             todayHighlight: true,
