@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
@@ -36,7 +37,7 @@ public class WidgetController {
     }
 
     @PostMapping("/car")
-    public String createCar(Car car) {
+    public String createCar(@Valid Car car) {
         car.setStartdate(car.getStartdate().plusDays(1));
         car.setEnddate(car.getEnddate().plusDays(1));
         carRepository.save(car);

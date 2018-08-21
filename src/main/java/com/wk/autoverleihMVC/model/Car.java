@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 import java.time.LocalDate;
 
 @Entity
@@ -16,7 +17,7 @@ public class Car {
 
     private Long id;
     private String name;
-    @Range(min = 1,max = 300)
+    @Min(value = 100, message = "Speed must be at least 100!")
     private Integer speed;
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate startdate;
