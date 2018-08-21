@@ -23,14 +23,14 @@
             <label>Name</label>
             <input type="text" class="form-control" name="name" placeholder="Name">
             <small class="text-danger">
-                Warning: Make sure you dont skip this field!
+                Warning: Name must be between 3 and 40 characters long!
             </small>
         </div>
         <div class="form-group">
             <label>Speed</label>
             <input type="number" class="form-control" th:field="*{speed}" placeholder="Speed">
                 <small class="text-danger">
-                    Warning:Speed must be not null,over 140 and under 300!
+                    Warning: Speed must be not null,over 140 and under 300!
                 </small>
         </div>
         <div class="form-group">

@@ -53,6 +53,8 @@ public class WidgetController {
     @GetMapping("/searchbydate")
     public String dateTest(@RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate startdate,
                            @RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate enddate, Model model) {
+        if (!(carService.dateValidator(startdate, enddate)))
+            return "redirect:/cars/";
         List<Car> allCars = (List<Car>) carRepository.findAll();
         List<Car> availableCars = carService.isAvailable(allCars, startdate, enddate);
         model.addAttribute("carlist", availableCars);

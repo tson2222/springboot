@@ -19,7 +19,7 @@
 <div class="container" style="background-color:#5bc0de">
     <table class="table">
         <img src="/images/mysql-logo-filled.png" height="75" width="75"/>
-        <h2>Car Database</h2>
+        <h1>Transaction Table</h1>
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -41,7 +41,7 @@
             <td><a class="btn btn-default" href="#" th:href="${'/car/delete/' + car.id}">Delete</a></td>
         </tr>
     </table>
-    <a th:href="${'/car/new'}" class="btn btn-warning">New</a>
+    <a th:href="${'/car/new'}" class="btn btn-primary">New</a>
 </div>
 
 <div class="container">
@@ -55,19 +55,19 @@
             <form th:action="@{/searchbydate}" th:object="${car}" method="get">
                 <div class="form-group">
                     <div class='input-group date' id='datepicker1'>
-                        <input type='text' class="form-control" name="startdate"/>
+                        <input type='text' class="form-control" name="startdate" autocomplete="off"/>
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
                     </div>
                     <h5>Input the date you want to return your car</h5>
                     <div class='input-group date' id='datepicker2'>
-                        <input type='text' class="form-control" name="enddate"/>
+                        <input type='text' class="form-control" name="enddate" autocomplete="off"/>
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="submit" class="btn btn">Submit</button>
                 </div>
             </form>
         </div>

@@ -17,7 +17,6 @@ public class CarServiceImpl implements CarService {
             LocalDate enddate = car.getEnddate();
             LocalDate startdate = car.getStartdate();
             if (!(start.isAfter(enddate) && end.isAfter(enddate) || (start.isBefore(startdate) && end.isBefore(startdate)))) {
-                System.out.println("test");
             } else carlist1.add(car);
         }
         return carlist1;
