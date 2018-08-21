@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
@@ -16,8 +18,9 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Long id;
+    @NotNull
     private String name;
-    @Min(value = 100, message = "Speed must be at least 100!")
+    @Min(100) @Max(300) @NotNull
     private Integer speed;
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate startdate;

@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -37,7 +38,12 @@ public class WidgetController {
     }
 
     @PostMapping("/car")
-    public String createCar(@Valid Car car) {
+    public String createCar(@Valid Car car, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "carform-error";
+        }
+        if (!(carService.dateValidator(car.getStartdate(), car.getEnddate())))
+            return "date-error";
         car.setStartdate(car.getStartdate().plusDays(1));
         car.setEnddate(car.getEnddate().plusDays(1));
         carRepository.save(car);
@@ -46,9 +52,9 @@ public class WidgetController {
 
     @GetMapping("/searchbydate")
     public String dateTest(@RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate startdate,
-                           @RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate enddate,Model model) {
+                           @RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate enddate, Model model) {
         List<Car> allCars = (List<Car>) carRepository.findAll();
-        List<Car> availableCars = carService.isAvailable(allCars,startdate,enddate);
+        List<Car> availableCars = carService.isAvailable(allCars, startdate, enddate);
         model.addAttribute("carlist", availableCars);
         return "searchbydate";
     }
