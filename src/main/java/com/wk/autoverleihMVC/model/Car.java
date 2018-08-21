@@ -1,40 +1,46 @@
 package com.wk.autoverleihMVC.model;
 
+import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 import java.time.LocalDate;
 
-@Entity //tells JPA to create a table in the DB named "car"
+@Entity
 public class Car {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Long id;
     private String name;
+    @Min(value = 100, message = "Speed must be at least 100!")
     private Integer speed;
     @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private LocalDate date;
+    private LocalDate startdate;
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    private LocalDate enddate;
 
     public Car() {
     }
 
-    public Car(Long id, String name, Integer speed, LocalDate date) {
-        this.id = id;
-        this.name = name;
-        this.speed = speed;
-        this.date = date;
+    public LocalDate getStartdate() {
+        return startdate;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public void setStartdate(LocalDate d) {
+        this.startdate = d;
     }
 
-    public void setDate(LocalDate d) {
-        this.date = d;
+    public LocalDate getEnddate() {
+        return enddate;
+    }
+
+    public void setEnddate(LocalDate enddate) {
+        this.enddate = enddate;
     }
 
     public Long getId() {
