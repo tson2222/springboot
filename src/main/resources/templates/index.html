@@ -3,16 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="../static/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" rel="stylesheet">
-    <link rel="shortcut icon" type="image/png" href="/images/car11.png">
+    <link rel="icon" type="image/png" href="images\car11.png">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"
+          id="bootstrap-css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css"
+          rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/locale/af.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
 </head>
 <body>
 
 <div class="container">
     <ol class="breadcrumb">
-        <li><a href="#" th:href="${'/cars'}">Do CRUD operations with car objects</a></li>
-        <li><a href="#" th:href="${'/youtube'}">Learn more about Spring MVC on Youtube</a></li>
+        <li><a href="#" th:href="${'/cars'}">Browse the transaction table</a></li>
+        <!--<li><a href="#" th:href="${'/youtube'}">Learn more about Spring MVC on Youtube</a></li>-->
     </ol>
 </div>
+
+<div class="container" style="background-color: transparent;">
+
+    <div class="row">
+        <h3>See which cars are available for a specific time frame</h3>
+    </div>
+    <div class="row">
+        <div class='col-sm-6'>
+            <h5>Input the date you want to start renting your car</h5>
+            <form th:action="@{/searchbydate}" th:object="${car}" method="get">
+                <div class="form-group">
+                    <div class='input-group date' id='datepicker1'>
+                        <input type='text' class="form-control" name="startdate" autocomplete="off"/>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    <h5>Input the date you want to return your car</h5>
+                    <div class='input-group date' id='datepicker2'>
+                        <input type='text' class="form-control" name="enddate" autocomplete="off"/>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    <button type="submit" class="btn btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+<script>
+    $(function () {
+        $('#datepicker1').datepicker({
+            format: "dd-mm-yyyy",
+            autoclose: true,
+            todayHighlight: true,
+            showOtherMonths: true,
+            selectOtherMonths: true,
+            autoclose: true,
+            changeMonth: true,
+            changeYear: true,
+            orientation: "button"
+        });
+    });
+</script>
+
+<script>
+    $(function () {
+        $('#datepicker2').datepicker({
+            format: "dd-mm-yyyy",
+            autoclose: true,
+            todayHighlight: true,
+            showOtherMonths: true,
+            selectOtherMonths: true,
+            autoclose: true,
+            changeMonth: true,
+            changeYear: true,
+            orientation: "button"
+        });
+    });
+</script>
+
+<!--<style>-->
+    <!--#googleMap {-->
+        <!--width: 100%; /* Span the entire width of the screen */-->
+        <!--height: 400px; /* Set the height to 400 pixels */-->
+        <!-- -webkit-filter: grayscale(100%);-->
+        <!--filter: grayscale(100%); /* Change the color of the map to black and white * /-->
+<!--}-->
+<!--</style>-->
+
+<!--&lt;!&ndash; Add Google Maps &ndash;&gt;-->
+<!--<div id="googleMap"></div>-->
+<!--<script>-->
+    <!--function myMap() {-->
+        <!--var myCenter = new google.maps.LatLng(41.878114, -87.629798);-->
+        <!--var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};-->
+        <!--var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);-->
+        <!--var marker = new google.maps.Marker({position:myCenter});-->
+        <!--marker.setMap(map);-->
+    <!--}-->
+<!--</script>-->
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>-->
+
+</body>
 </body>
 </html>

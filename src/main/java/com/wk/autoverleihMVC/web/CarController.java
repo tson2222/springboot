@@ -20,13 +20,13 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Controller
-public class WidgetController {
+public class CarController {
 
     private final CarRepository carRepository;
     private final CarServiceImpl carService;
 
     @Autowired
-    public WidgetController(CarRepository carRepository, CarServiceImpl carService) {
+    public CarController(CarRepository carRepository, CarServiceImpl carService) {
         this.carRepository = carRepository;
         this.carService = carService;
     }
@@ -61,13 +61,13 @@ public class WidgetController {
         return "searchbydate";
     }
 
-    @RequestMapping("/youtube")
-    public ResponseEntity<Object> redirectToExternalUrl() throws URISyntaxException {
-        URI yt = new URI("https://www.youtube.com/watch?v=mt1YWbSTjx8");
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.setLocation(yt);
-        return new ResponseEntity<>(httpHeaders, HttpStatus.SEE_OTHER);
-    }
+//    @RequestMapping("/youtube")
+//    public ResponseEntity<Object> redirectToExternalUrl() throws URISyntaxException {
+//        URI yt = new URI("https://www.youtube.com/watch?v=mt1YWbSTjx8");
+//        HttpHeaders httpHeaders = new HttpHeaders();
+//        httpHeaders.setLocation(yt);
+//        return new ResponseEntity<>(httpHeaders, HttpStatus.SEE_OTHER);
+//    }
 
     @GetMapping("/car/{id}")
     public String getWidgetById(@PathVariable Long id, Model model) {

@@ -13,12 +13,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/locale/af.js"></script>
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+    <div class="container" style="background-color:#5bc0de">
+    <p>
+        <a href="/">
+            <img src="https://i1.wp.com/freepngimages.com/wp-content/uploads/2015/09/home_button.png?fit=630%2C203" width="100">
+        </a>
+    </p>
+    </div>
 </head>
 <body>
 
 <div class="container" style="background-color:#5bc0de">
     <table class="table">
-        <img src="/images/mysql-logo-filled.png" height="75" width="75"/>
         <h1>Transaction Table</h1>
         <tr>
             <th>ID</th>
@@ -41,70 +47,7 @@
             <td><a class="btn btn-default" href="#" th:href="${'/car/delete/' + car.id}">Delete</a></td>
         </tr>
     </table>
-    <a th:href="${'/car/new'}" class="btn btn-primary">New</a>
+    <a th:href="${'/car/new'}" class="btn btn-primary">Add Car</a>
 </div>
-
-<div class="container">
-
-    <div class="row">
-        <h3>See which cars are available for a specific time frame </h3>
-    </div>
-    <div class="row">
-        <div class='col-sm-6'>
-            <h5>Input the date you want to start renting your car</h5>
-            <form th:action="@{/searchbydate}" th:object="${car}" method="get">
-                <div class="form-group">
-                    <div class='input-group date' id='datepicker1'>
-                        <input type='text' class="form-control" name="startdate" autocomplete="off"/>
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                    <h5>Input the date you want to return your car</h5>
-                    <div class='input-group date' id='datepicker2'>
-                        <input type='text' class="form-control" name="enddate" autocomplete="off"/>
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                    <button type="submit" class="btn btn">Submit</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
-<script>
-    $(function () {
-        $('#datepicker1').datepicker({
-            format: "dd-mm-yyyy",
-            autoclose: true,
-            todayHighlight: true,
-            showOtherMonths: true,
-            selectOtherMonths: true,
-            autoclose: true,
-            changeMonth: true,
-            changeYear: true,
-            orientation: "button"
-        });
-    });
-</script>
-
-<script>
-    $(function () {
-        $('#datepicker2').datepicker({
-            format: "dd-mm-yyyy",
-            autoclose: true,
-            todayHighlight: true,
-            showOtherMonths: true,
-            selectOtherMonths: true,
-            autoclose: true,
-            changeMonth: true,
-            changeYear: true,
-            orientation: "button"
-        });
-    });
-</script>
 </body>
 </html>
