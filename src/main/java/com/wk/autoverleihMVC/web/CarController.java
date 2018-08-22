@@ -5,17 +5,12 @@ import com.wk.autoverleihMVC.repository.CarRepository;
 import com.wk.autoverleihMVC.service.CarServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -54,20 +49,12 @@ public class CarController {
     public String dateTest(@RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate startdate,
                            @RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate enddate, Model model) {
         if (!(carService.dateValidator(startdate, enddate)))
-            return "redirect:/cars/";
+            return "redirect:/";
         List<Car> allCars = (List<Car>) carRepository.findAll();
         List<Car> availableCars = carService.isAvailable(allCars, startdate, enddate);
         model.addAttribute("carlist", availableCars);
         return "searchbydate";
     }
-
-//    @RequestMapping("/youtube")
-//    public ResponseEntity<Object> redirectToExternalUrl() throws URISyntaxException {
-//        URI yt = new URI("https://www.youtube.com/watch?v=mt1YWbSTjx8");
-//        HttpHeaders httpHeaders = new HttpHeaders();
-//        httpHeaders.setLocation(yt);
-//        return new ResponseEntity<>(httpHeaders, HttpStatus.SEE_OTHER);
-//    }
 
     @GetMapping("/car/{id}")
     public String getWidgetById(@PathVariable Long id, Model model) {
