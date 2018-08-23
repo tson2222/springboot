@@ -68,6 +68,11 @@ public class CarController {
         return "cars";
     }
 
+    @GetMapping("/contact")
+    public String getContactPage() {
+        return "contact";
+    }
+
     @GetMapping("/car/edit/{id}")
     public String editCar(@PathVariable Long id, Model model) {
         model.addAttribute("car", carRepository.findById(id).orElse(new Car()));

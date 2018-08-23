@@ -23,15 +23,21 @@
         </div>
         <ul class="nav navbar-nav">
             <li><a href="/cars">Transactions</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="https://github.com/tson2222/springboot">
-                <img src="https://die-netzialisten.de/wp-content/uploads/2013/06/logo-git.png" height="25" width="25"></a></li>
+            <li><a href="https://github.com/tson2222/springboot" target="_blank">Github
+                <img src="https://die-netzialisten.de/wp-content/uploads/2013/06/logo-git.png" height="22" width="22">
+            </a></li>
         </ul>
     </div>
 </nav>
 
-<div class="navbar" style="background-color:#5bc0de"></div>
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="#" th:href="${'/cars'}">Temporary filler</a></li>
+    </ol>
+</div>
+
 <div class="container" style="background-color:#5bc0de">
     <table class="table">
         <h1>Transaction Table</h1>
@@ -58,68 +64,5 @@
     </table>
     <a th:href="${'/car/new'}" class="btn btn-primary">Add Car</a>
 </div>
-
-<div class="container" style="background-color: transparent;">
-
-    <div class="row">
-        <h3>See which cars are available for a specific time frame</h3>
-    </div>
-    <div class="row">
-        <div class='col-sm-6'>
-            <h5>Input the date you want to start renting your car</h5>
-            <form th:action="@{/searchbydate}" th:object="${car}" method="get">
-                <div class="form-group">
-                    <div class='input-group date' id='datepicker1'>
-                        <input type='text' class="form-control" name="startdate" autocomplete="off"/>
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                    <h5>Input the date you want to return your car</h5>
-                    <div class='input-group date' id='datepicker2'>
-                        <input type='text' class="form-control" name="enddate" autocomplete="off"/>
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                    <button type="submit" class="btn btn">Submit</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
-<script>
-    $(function () {
-        $('#datepicker1').datepicker({
-            format: "dd-mm-yyyy",
-            autoclose: true,
-            todayHighlight: true,
-            showOtherMonths: true,
-            selectOtherMonths: true,
-            autoclose: true,
-            changeMonth: true,
-            changeYear: true,
-            orientation: "button"
-        });
-    });
-</script>
-
-<script>
-    $(function () {
-        $('#datepicker2').datepicker({
-            format: "dd-mm-yyyy",
-            autoclose: true,
-            todayHighlight: true,
-            showOtherMonths: true,
-            selectOtherMonths: true,
-            autoclose: true,
-            changeMonth: true,
-            changeYear: true,
-            orientation: "button"
-        });
-    });
-</script>
 </body>
 </html>

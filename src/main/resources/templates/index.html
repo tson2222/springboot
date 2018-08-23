@@ -24,48 +24,98 @@
         </div>
         <ul class="nav navbar-nav">
             <li><a href="/cars">Transactions</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="https://github.com/tson2222/springboot">
-                <img src="https://die-netzialisten.de/wp-content/uploads/2013/06/logo-git.png" height="25" width="25"></a></li>
+            <li><a href="https://github.com/tson2222/springboot" target="_blank">Github
+                <img src="https://die-netzialisten.de/wp-content/uploads/2013/06/logo-git.png" height="22" width="22"></a></li>
         </ul>
     </div>
 </nav>
 
 <div class="container">
     <ol class="breadcrumb">
-        <li><a href="#" th:href="${'/cars'}">Browse the transaction table</a></li>
+        <li><a href="#" th:href="${'/cars'}">Temporary filler</a></li>
     </ol>
 </div>
 
-<div class="container" style="background-color: transparent;">
+<div class="jumbotron text-center">
+    <h1>Welcome to rentcars.com!</h1>
+    <p>Your local car rental</p>
+</div>
+
+<div class="container">
     <div class="row">
-        <h3>See which cars are available for a specific time frame</h3>
-    </div>
-    <div class="row">
-        <div class='col-sm-6'>
-            <h5>Input the date you want to start renting your car</h5>
-            <form th:action="@{/searchbydate}" th:object="${car}" method="get">
-                <div class="form-group">
-                    <div class='input-group date' id='datepicker1'>
-                        <input type='text' class="form-control" name="startdate" autocomplete="off"/>
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                    <h5>Input the date you want to return your car</h5>
-                    <div class='input-group date' id='datepicker2'>
-                        <input type='text' class="form-control" name="enddate" autocomplete="off"/>
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                    <button type="submit" class="btn btn">Submit</button>
-                </div>
-            </form>
+        <div class="col-sm-4">
+            <h3>Fair Prices</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        </div>
+        <div class="col-sm-4">
+            <h3>Quality Cars</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        </div>
+        <div class="col-sm-4">
+            <h3>Professional Service</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
         </div>
     </div>
 </div>
+
+
+<div class="container demo-bg">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div class="business-hours">
+                <h2 class="title">Opening Hours</h2>
+                <ul class="list-unstyled opening-hours">
+                    <li>Monday <span class="pull-right">8:00-22:00</span></li>
+                    <li>Tuesday <span class="pull-right">8:00-22:00</span></li>
+                    <li>Wednesday <span class="pull-right">8:00-22:00</span></li>
+                    <li>Thursday <span class="pull-right">8:00-22:00</span></li>
+                    <li>Friday <span class="pull-right">6:00-24:00</span></li>
+                    <li>Saturday <span class="pull-right">6:00-24:00</span></li>
+                    <li>Sunday <span class="pull-right">Closed</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container demo-bg">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div class="row">
+                <h3>See which cars are available for a specific time frame</h3>
+                <h5>Input the date you want to start renting your car</h5>
+                <form th:action="@{/searchbydate}" th:object="${car}" method="get">
+                    <div class="form-group">
+                        <div class='input-group date' id='datepicker1'>
+                            <input type='text' class="form-control" name="startdate" autocomplete="off"/>
+                            <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                        </div>
+                        <h5>Input the date you want to return your car</h5>
+                        <div class='input-group date' id='datepicker2'>
+                            <input type='text' class="form-control" name="enddate" autocomplete="off"/>
+                            <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                        </div>
+                        <button type="submit" class="btn btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
 <script>
@@ -99,29 +149,5 @@
         });
     });
 </script>
-
-
-<!--<style>-->
-    <!--#googleMap {-->
-        <!--width: 100%; /* Span the entire width of the screen */-->
-        <!--height: 400px; /* Set the height to 400 pixels */-->
-        <!-- -webkit-filter: grayscale(100%);-->
-        <!--filter: grayscale(100%); /* Change the color of the map to black and white * /-->
-<!--}-->
-<!--</style>-->
-
-<!--&lt;!&ndash; Add Google Maps &ndash;&gt;-->
-<!--<div id="googleMap"></div>-->
-<!--<script>-->
-    <!--function myMap() {-->
-        <!--var myCenter = new google.maps.LatLng(41.878114, -87.629798);-->
-        <!--var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};-->
-        <!--var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);-->
-        <!--var marker = new google.maps.Marker({position:myCenter});-->
-        <!--marker.setMap(map);-->
-    <!--}-->
-<!--</script>-->
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>-->
-
 </body>
 </html>
