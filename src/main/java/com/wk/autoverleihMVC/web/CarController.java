@@ -1,6 +1,6 @@
 package com.wk.autoverleihMVC.web;
 
-import com.wk.autoverleihMVC.model.Car;
+import com.wk.autoverleihMVC.model.Booking;
 import com.wk.autoverleihMVC.repository.CarRepository;
 import com.wk.autoverleihMVC.service.CarServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,21 +28,21 @@ public class CarController {
 
     @GetMapping("/car/new")
     public String newCar(Model model) {
-        model.addAttribute("car", new Car());
+        model.addAttribute("car", new Booking());
         return "carform";
     }
 
     @PostMapping("/car")
-    public String createCar(@Valid Car car, BindingResult bindingResult) {
+    public String createCar(@Valid Booking booking, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "carform-error";
         }
-        if (!(carService.dateValidator(car.getStartdate(), car.getEnddate())))
+        if (!(carService.dateValidator(booking.getStartdate(), booking.getEnddate())))
             return "date-error";
-        car.setStartdate(car.getStartdate().plusDays(1));
-        car.setEnddate(car.getEnddate().plusDays(1));
-        carRepository.save(car);
-        return "redirect:/car/" + car.getId();
+        booking.setStartdate(booking.getStartdate().plusDays(1));
+        booking.setEnddate(booking.getEnddate().plusDays(1));
+        carRepository.save(booking);
+        return "redirect:/car/" + booking.getId();
     }
 
     @GetMapping("/searchbydate")
@@ -50,15 +50,15 @@ public class CarController {
                            @RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate enddate, Model model) {
         if (!(carService.dateValidator(startdate, enddate)))
             return "redirect:/";
-        List<Car> allCars = (List<Car>) carRepository.findAll();
-        List<Car> availableCars = carService.isAvailable(allCars, startdate, enddate);
-        model.addAttribute("carlist", availableCars);
+        List<Booking> allBookings = (List<Booking>) carRepository.findAll();
+        List<Booking> availableBookings = carService.isAvailable(allBookings, startdate, enddate);
+        model.addAttribute("carlist", availableBookings);
         return "searchbydate";
     }
 
     @GetMapping("/car/{id}")
     public String getWidgetById(@PathVariable Long id, Model model) {
-        model.addAttribute("car", carRepository.findById(id).orElse(new Car()));
+        model.addAttribute("car", carRepository.findById(id).orElse(new Booking()));
         return "car";
     }
 
@@ -75,14 +75,14 @@ public class CarController {
 
     @GetMapping("/car/edit/{id}")
     public String editCar(@PathVariable Long id, Model model) {
-        model.addAttribute("car", carRepository.findById(id).orElse(new Car()));
+        model.addAttribute("car", carRepository.findById(id).orElse(new Booking()));
         return "carform";
     }
 
     @PostMapping("/car/{id}")
-    public String updateCar(Car car) {
-        carRepository.save(car);
-        return "redirect:/car/" + car.getId();
+    public String updateCar(Booking booking) {
+        carRepository.save(booking);
+        return "redirect:/car/" + booking.getId();
     }
 
     @GetMapping("/car/delete/{id}")

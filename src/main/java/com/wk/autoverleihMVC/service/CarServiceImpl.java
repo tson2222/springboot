@@ -1,6 +1,6 @@
 package com.wk.autoverleihMVC.service;
 
-import com.wk.autoverleihMVC.model.Car;
+import com.wk.autoverleihMVC.model.Booking;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -11,13 +11,13 @@ import java.util.List;
 public class CarServiceImpl implements CarService {
 
     @Override
-    public List<Car> isAvailable(List<Car> carList, LocalDate start, LocalDate end) {
-        List<Car> carlist1 = new ArrayList<>();
-        for (Car car : carList) {
-            LocalDate enddate = car.getEnddate();
-            LocalDate startdate = car.getStartdate();
+    public List<Booking> isAvailable(List<Booking> bookingList, LocalDate start, LocalDate end) {
+        List<Booking> carlist1 = new ArrayList<>();
+        for (Booking booking : bookingList) {
+            LocalDate enddate = booking.getEnddate();
+            LocalDate startdate = booking.getStartdate();
             if (!(start.isAfter(enddate) && end.isAfter(enddate) || (start.isBefore(startdate) && end.isBefore(startdate)))) {
-            } else carlist1.add(car);
+            } else carlist1.add(booking);
         }
         return carlist1;
     }

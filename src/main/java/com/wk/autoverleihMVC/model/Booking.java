@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Entity
-public class Car {
+public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
@@ -26,7 +26,7 @@ public class Car {
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate enddate;
 
-    public Car() {
+    public Booking() {
     }
 
     public LocalDate getStartdate() {

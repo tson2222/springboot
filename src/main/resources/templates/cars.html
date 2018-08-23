@@ -51,15 +51,15 @@
             <th>Edit</th>
             <th>Delete</th>
         </tr>
-        <tr th:each="car : ${carlist}">
-            <td th:text="${car.id}">Car ID</td>
-            <td th:text="${car.name}">Car Name</td>
-            <td th:text="${car.speed}">Car Speed</td>
-            <td th:text="${car.startdate}">Car DateRented</td>
-            <td th:text="${car.enddate}">Car DateRented</td>
-            <td><a class="btn btn-default" href="#" th:href="${'/car/' + car.id}">View</a></td>
-            <td><a class="btn btn-default" href="#" th:href="${'/car/edit/' + car.id}">Edit</a></td>
-            <td><a class="btn btn-default" href="#" th:href="${'/car/delete/' + car.id}">Delete</a></td>
+        <tr th:each="booking : ${carlist}">
+            <td th:text="${booking.id}">Car ID</td>
+            <td th:text="${booking.name}">Car Name</td>
+            <td th:text="${booking.speed}">Car Speed</td>
+            <td th:text="${booking.startdate}">Car DateRented</td>
+            <td th:text="${booking.enddate}">Car DateRented</td>
+            <td><a class="btn btn-default" href="#" th:href="${'/booking/' + booking.id}">View</a></td>
+            <td><a class="btn btn-default" href="#" th:href="${'/booking/edit/' + booking.id}">Edit</a></td>
+            <td><a class="btn btn-default" href="#" th:href="${'/booking/delete/' + booking.id}">Delete</a></td>
         </tr>
     </table>
     <a th:href="${'/car/new'}" class="btn btn-primary">Add Car</a>
