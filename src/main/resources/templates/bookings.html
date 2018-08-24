@@ -13,34 +13,45 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/locale/af.js"></script>
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+
+    <style>
+        body {
+            padding-top: 52px;
+        }
+        .new{
+            padding-left: 1100px;
+        }
+        .new{
+            padding-left: 900px;
+        }
+    </style>
+
 </head>
 
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home" style="margin-left:6px;"></span> Home</a>
+            <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home" style="margin-left:6px;"></span>
+                Home</a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="/cars">Transactions</a></li>
+            <li><a href="/bookings">Bookings</a></li>
             <li><a href="/contact">Contact Us</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="https://github.com/tson2222/springboot" target="_blank">Github
-                <img src="https://die-netzialisten.de/wp-content/uploads/2013/06/logo-git.png" height="22" width="22">
-            </a></li>
+            <li class="new"><a href="https://github.com/tson2222/springboot" target="_blank">Github
+                <img src="https://die-netzialisten.de/wp-content/uploads/2013/06/logo-git.png" height="22"
+                     width="22"></a></li>
+            <li class="new2"><a href="https://facebook.com/rentcars24" target="_blank">Facebook
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/F_icon.svg/1000px-F_icon.svg.png" height="22"
+                     width="22"></a></li>
         </ul>
     </div>
 </nav>
 
-<div class="container">
-    <ol class="breadcrumb">
-        <li><a href="#" th:href="${'/cars'}">Temporary filler</a></li>
-    </ol>
-</div>
-
 <div class="container" style="background-color:#5bc0de">
     <table class="table">
-        <h1>Transaction Table</h1>
+        <h1>Booking Table</h1>
         <tr>
             <th>ID</th>
             <th>Name</th>

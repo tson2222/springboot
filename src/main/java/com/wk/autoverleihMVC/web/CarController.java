@@ -28,11 +28,11 @@ public class CarController {
 
     @GetMapping("/car/new")
     public String newCar(Model model) {
-        model.addAttribute("car", new Booking());
+        model.addAttribute("booking", new Booking());
         return "carform";
     }
 
-    @PostMapping("/car")
+    @PostMapping("/booking")
     public String createCar(@Valid Booking booking, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "carform-error";
@@ -42,7 +42,7 @@ public class CarController {
         booking.setStartdate(booking.getStartdate().plusDays(1));
         booking.setEnddate(booking.getEnddate().plusDays(1));
         carRepository.save(booking);
-        return "redirect:/car/" + booking.getId();
+        return "redirect:/booking/" + booking.getId();
     }
 
     @GetMapping("/searchbydate")
@@ -56,16 +56,16 @@ public class CarController {
         return "searchbydate";
     }
 
-    @GetMapping("/car/{id}")
+    @GetMapping("/booking/{id}")
     public String getWidgetById(@PathVariable Long id, Model model) {
-        model.addAttribute("car", carRepository.findById(id).orElse(new Booking()));
-        return "car";
+        model.addAttribute("booking", carRepository.findById(id).orElse(new Booking()));
+        return "booking";
     }
 
-    @GetMapping("/cars")
+    @GetMapping("/bookings")
     public String getCars(Model model) {
         model.addAttribute("carlist", carRepository.findAll());
-        return "cars";
+        return "bookings";
     }
 
     @GetMapping("/contact")
@@ -85,10 +85,10 @@ public class CarController {
         return "redirect:/car/" + booking.getId();
     }
 
-    @GetMapping("/car/delete/{id}")
+    @GetMapping("/booking/delete/{id}")
     public String deleteCar(@PathVariable Long id) {
         carRepository.deleteById(id);
-        return "redirect:/cars";
+        return "redirect:/bookings";
     }
 }
 

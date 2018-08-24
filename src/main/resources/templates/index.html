@@ -45,6 +45,19 @@
             outline: 5px solid lawngreen;
             margin-top: 10px
         }
+        .glyphicon-time{
+            margin-left: 210px;
+        }
+
+        .carousel{
+            background-image: url("http://blog.visme.co/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-028.jpg");
+        }
+        .new{
+            padding-left: 1100px;
+        }
+        .new{
+            padding-left: 900px;
+        }
     </style>
 </head>
 
@@ -56,18 +69,21 @@
                 Home</a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="/cars">Transactions</a></li>
+            <li><a href="/bookings">Bookings</a></li>
             <li><a href="/contact">Contact Us</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="https://github.com/tson2222/springboot" target="_blank">Github
+            <li class="new"><a href="https://github.com/tson2222/springboot" target="_blank">Github
                 <img src="https://die-netzialisten.de/wp-content/uploads/2013/06/logo-git.png" height="22"
+                     width="22"></a></li>
+            <li class="new2"><a href="https://facebook.com/rentcars24" target="_blank">Facebook
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/F_icon.svg/1000px-F_icon.svg.png" height="22"
                      width="22"></a></li>
         </ul>
     </div>
 </nav>
 
 <div class="jumbotron text-center">
-    <h1 style="color: #eeeeee"> Welcome to rentcars.com!</h1>
+    <h1 style="color: #eeeeee">rentcars24.com</h1>
     <p style="color: #31b0d5">Start renting a car today.</p>
 </div>
 
@@ -100,7 +116,7 @@
             <li data-target="#carousel" data-slide-to="0" class="active"></li>
             <li data-target="#carousel" data-slide-to="1"></li>
             <li data-target="#carousel" data-slide-to="2"></li>
-            <li data-target="#carousel" data-slide-to="3"></li>
+            <!--<li data-target="#carousel" data-slide-to="3"></li>-->
         </ol>
         <div class="carousel-inner">
             <div class="item active">
@@ -108,7 +124,7 @@
                      style="width:700px;height:465px;">
                 <div class="carousel-caption">
                     <h3 style="color: #dfff04;">Audi RS3</h3>
-                    <h4 style="color: #dfff04;">100$/day</h4>
+                    <h4 style="color: #dfff04;">80$/day</h4>
                 </div>
             </div>
 
@@ -117,7 +133,7 @@
                      alt="x" style="width:700px;height:465px;">
                 <div class="carousel-caption">
                     <h3 style="color: #dfff04;">Bmw 328i</h3>
-                    <h4 style="color: #dfff04;">70$/day</h4>
+                    <h4 style="color: #dfff04;">60$/day</h4>
                 </div>
             </div>
 
@@ -126,18 +142,18 @@
                      style="width:700px;height:465px;">
                 <div class="carousel-caption">
                     <h3 style="color: #dfff04;">Mercedes AMG</h3>
-                    <h4 style="color: #dfff04;">115$/day</h4>
+                    <h4 style="color: #dfff04;">120$/day</h4>
                 </div>
             </div>
 
-            <div class="item">
-                <img src="http://www.pngpix.com/wp-content/uploads/2016/06/PNGPIX-COM-Blue-Ford-Focus-Car-PNG-Image.png"
-                     alt="y" style="width:700px;height:465px;">
-                <div class="carousel-caption">
-                    <h3 style="color: #dfff04;">Ford Focus</h3>
-                    <h4 style="color: #dfff04;">75$/day</h4>
-                </div>
-            </div>
+            <!--<div class="item">-->
+                <!--<img src="http://www.pngpix.com/wp-content/uploads/2016/06/PNGPIX-COM-Blue-Ford-Focus-Car-PNG-Image.png"-->
+                     <!--alt="y" style="width:700px;height:465px;">-->
+                <!--<div class="carousel-caption">-->
+                    <!--<h3 style="color: #dfff04;">Ford Focus</h3>-->
+                    <!--<h4 style="color: #dfff04;">75$/day</h4>-->
+                <!--</div>-->
+            <!--</div>-->
 
         </div>
         <!-- Left and right controls -->
@@ -155,13 +171,13 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-lg-6">
             <div class="container demo-bg">
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-lg-6">
                         <div class="row">
                             <h3>See which cars are available for a specific time frame</h3>
-                            <h5>Input the date you want to start renting your booking</h5>
+                            <h5>Input the date you want to start renting your car</h5>
                             <form th:action="@{/searchbydate}" th:object="${booking}" method="get">
                                 <div class="form-group">
                                     <div class='input-group date' id='datepicker1'>
@@ -170,7 +186,7 @@
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
                                     </div>
-                                    <h5>Input the date you want to return your booking</h5>
+                                    <h5>Input the date you want to return your car</h5>
                                     <div class='input-group date' id='datepicker2'>
                                         <input type='text' class="form-control" name="enddate" autocomplete="off"/>
                                         <span class="input-group-addon">
@@ -185,7 +201,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-lg-6">
             <div class="business-hours">
                 <h2 class="title">Opening Hours &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
                     <span class="glyphicon glyphicon-time"></span></h2>
