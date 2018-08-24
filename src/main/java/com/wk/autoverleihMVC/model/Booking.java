@@ -1,6 +1,7 @@
 package com.wk.autoverleihMVC.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,9 +18,11 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Long id;
-    @Size(min = 3,max = 40)
+    @Size(min = 3, max = 40)
     private String name;
-    @Min(100) @Max(300) @NotNull
+    @Min(100)
+    @Max(300)
+    @NotNull
     private Integer speed;
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate startdate;

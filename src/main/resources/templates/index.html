@@ -40,22 +40,26 @@
         body {
             padding-top: 52px;
         }
-        .k2{
+
+        .k2 {
             background-color: lightskyblue;
             outline: 5px solid lawngreen;
             margin-top: 10px
         }
-        .glyphicon-time{
+
+        .glyphicon-time {
             margin-left: 210px;
         }
 
-        .carousel{
+        .carousel {
             background-image: url("http://blog.visme.co/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-028.jpg");
         }
-        .new{
+
+        .new {
             padding-left: 1100px;
         }
-        .new{
+
+        .new {
             padding-left: 900px;
         }
     </style>
@@ -76,7 +80,8 @@
                 <img src="https://die-netzialisten.de/wp-content/uploads/2013/06/logo-git.png" height="22"
                      width="22"></a></li>
             <li class="new2"><a href="https://facebook.com/rentcars24" target="_blank">Facebook
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/F_icon.svg/1000px-F_icon.svg.png" height="22"
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/F_icon.svg/1000px-F_icon.svg.png"
+                     height="22"
                      width="22"></a></li>
         </ul>
     </div>
@@ -89,23 +94,23 @@
 
 <div class="container k2">
     <div class="test">
-    <div class="row">
-        <div class="col-sm-4">
-            <h3>Fair Prices &nbsp<span class="glyphicon glyphicon-ok"></span></h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Fair Prices &nbsp<span class="glyphicon glyphicon-ok"></span></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Quality Cars &nbsp<i class="fas fa-car"></i></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Professional Service &nbsp<i class="fas fa-user-tie"></i></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
         </div>
-        <div class="col-sm-4">
-            <h3>Quality Cars &nbsp<i class="fas fa-car"></i></h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Professional Service &nbsp<i class="fas fa-user-tie"></i></h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-        </div>
-    </div>
     </div>
 </div>
 
@@ -138,7 +143,8 @@
             </div>
 
             <div class="item">
-                <img src="https://assets.mbusa.com/vcm/MB/DigitalAssets/AMG_ThemePage/Responsive/1Man1Engine/GT-MODULE/2017-SUPERBOWL-AMG-GT-ROADSTER_GTC-D.png" alt="y"
+                <img src="https://assets.mbusa.com/vcm/MB/DigitalAssets/AMG_ThemePage/Responsive/1Man1Engine/GT-MODULE/2017-SUPERBOWL-AMG-GT-ROADSTER_GTC-D.png"
+                     alt="y"
                      style="width:700px;height:465px;">
                 <div class="carousel-caption">
                     <h3 style="color: #dfff04;">Mercedes AMG</h3>
@@ -147,12 +153,12 @@
             </div>
 
             <!--<div class="item">-->
-                <!--<img src="http://www.pngpix.com/wp-content/uploads/2016/06/PNGPIX-COM-Blue-Ford-Focus-Car-PNG-Image.png"-->
-                     <!--alt="y" style="width:700px;height:465px;">-->
-                <!--<div class="carousel-caption">-->
-                    <!--<h3 style="color: #dfff04;">Ford Focus</h3>-->
-                    <!--<h4 style="color: #dfff04;">75$/day</h4>-->
-                <!--</div>-->
+            <!--<img src="http://www.pngpix.com/wp-content/uploads/2016/06/PNGPIX-COM-Blue-Ford-Focus-Car-PNG-Image.png"-->
+            <!--alt="y" style="width:700px;height:465px;">-->
+            <!--<div class="carousel-caption">-->
+            <!--<h3 style="color: #dfff04;">Ford Focus</h3>-->
+            <!--<h4 style="color: #dfff04;">75$/day</h4>-->
+            <!--</div>-->
             <!--</div>-->
 
         </div>
@@ -181,14 +187,16 @@
                             <form th:action="@{/searchbydate}" th:object="${booking}" method="get">
                                 <div class="form-group">
                                     <div class='input-group date' id='datepicker1'>
-                                        <input type='text' class="form-control" name="startdate" autocomplete="off"/>
+                                        <input type='text' class="form-control" name="startdate" autocomplete="off"
+                                               required/>
                                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
                                     </div>
                                     <h5>Input the date you want to return your car</h5>
                                     <div class='input-group date' id='datepicker2'>
-                                        <input type='text' class="form-control" name="enddate" autocomplete="off"/>
+                                        <input type='text' class="form-control" name="enddate" autocomplete="off"
+                                               required/>
                                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -235,9 +243,7 @@
             orientation: "button"
         });
     });
-</script>
 
-<script>
     $(function () {
         $('#datepicker2').datepicker({
             format: "dd-mm-yyyy",
@@ -251,7 +257,20 @@
             orientation: "button"
         });
     });
-</script>
 
+    function myFunction() {
+        var x, text;
+
+        x = document.getElementById("numb").value;
+
+        // If x is Not a Number or less than one or greater than 10
+        if (isNaN(x) || x < 1 || x > 10) {
+            text = "Input not valid";
+        } else {
+            text = "Input OK";
+        }
+        document.getElementById("demo").innerHTML = text;
+    }
+</script>
 </body>
 </html>
