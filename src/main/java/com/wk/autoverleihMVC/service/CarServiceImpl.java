@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public class CarServiceImpl implements CarService {
-
+    //returns a list of all the cars are not booked for the dates "start" and "end", and in between
     @Override
     public List<Booking> isAvailable(List<Booking> bookingList, LocalDate start, LocalDate end) {
         List<Booking> carlist1 = new ArrayList<>();
@@ -22,6 +22,7 @@ public class CarServiceImpl implements CarService {
         return carlist1;
     }
 
+    //checks if date "start" lies after date "end"
     public boolean dateValidator(LocalDate start, LocalDate end) {
         boolean b = true;
         if (start.isAfter(end)) {
