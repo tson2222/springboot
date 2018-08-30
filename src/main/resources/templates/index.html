@@ -62,6 +62,7 @@
         .new {
             padding-left: 900px;
         }
+
         .b {
             padding-top: 50px;
         }
@@ -194,56 +195,56 @@
 
 
 <div class="container c">
-        <div class="col-lg-6 b">
-            <div class="container demo-bg">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="row">
-                            <h3>See which cars are available for a specific time frame</h3>
-                            <h5>Input the date you want to start renting your car</h5>
-                            <form th:action="@{/searchbydate}" th:object="${booking}" method="get">
-                                <div class="form-group">
-                                    <div class='input-group date' id='datepicker1'>
-                                        <input type='text' class="form-control" name="startdate" autocomplete="off"
-                                               required/>
-                                        <span class="input-group-addon">
+    <div class="col-lg-6 b">
+        <div class="container demo-bg">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <h3>See which cars are available for a specific time frame</h3>
+                        <h5>Input the date you want to start renting your car</h5>
+                        <form th:action="@{/searchbydate}" th:object="${booking}" method="get">
+                            <div class="form-group">
+                                <div class='input-group date' id='datepicker1'>
+                                    <input type='text' class="form-control" name="startdate" autocomplete="off"
+                                           required/>
+                                    <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
-                                    </div>
-                                    <h5>Input the date you want to return your car</h5>
-                                    <div class='input-group date' id='datepicker2'>
-                                        <input id=date2 type='text' class="form-control" name="enddate"
-                                               autocomplete="off"
-                                               required/>
-                                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                                    </div>
-                                    <button type="submit" class="btn btn">Submit</button>
                                 </div>
-                            </form>
-                        </div>
+                                <h5>Input the date you want to return your car</h5>
+                                <div class='input-group date' id='datepicker2'>
+                                    <input id=date2 type='text' class="form-control" name="enddate"
+                                           autocomplete="off"
+                                           required/>
+                                    <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                                </div>
+                                <button type="submit" class="btn btn">Submit</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 e">
-            <div class="business-hours">
-                <div class="alert alert-success" id="demo">loading...</div>
-            </div>
-            <h2 class="title">Opening Hours &nbsp
-                <span class="glyphicon glyphicon-time"></span></h2>
-            <ul class="list-unstyled opening-hours">
-                <li>&nbsp Monday <span class="pull-right">8:00-22:00</span></li>
-                <li>&nbsp Tuesday <span class="pull-right">8:00-22:00</span></li>
-                <li>&nbsp Wednesday <span class="pull-right">8:00-22:00</span></li>
-                <li>&nbsp Thursday <span class="pull-right">8:00-22:00</span></li>
-                <li>&nbsp Friday <span class="pull-right">6:00-24:00</span></li>
-                <li>&nbsp Saturday <span class="pull-right">6:00-24:00</span></li>
-                <li>&nbsp Sunday <span class="pull-right">Closed</span></li>
-            </ul>
-        </div>
     </div>
+    <div class="col-lg-6 e">
+        <div class="business-hours">
+            <div class="alert alert-success" id="demo"></div>
+        </div>
+        <h2 class="title">Opening Hours &nbsp
+            <span class="glyphicon glyphicon-time"></span></h2>
+        <ul class="list-unstyled opening-hours">
+            <li>&nbsp Monday <span class="pull-right">8:00-22:00</span></li>
+            <li>&nbsp Tuesday <span class="pull-right">8:00-22:00</span></li>
+            <li>&nbsp Wednesday <span class="pull-right">8:00-22:00</span></li>
+            <li>&nbsp Thursday <span class="pull-right">8:00-22:00</span></li>
+            <li>&nbsp Friday <span class="pull-right">6:00-24:00</span></li>
+            <li>&nbsp Saturday <span class="pull-right">6:00-24:00</span></li>
+            <li>&nbsp Sunday <span class="pull-right">Closed</span></li>
+        </ul>
+    </div>
+</div>
 
 <script>
 
@@ -280,6 +281,7 @@
 
     function myFunction() {
         var m = new Date();
+        var element = document.getElementById("demo");
         var dateString =
             m.getUTCFullYear() + "/" +
             ("0" + (m.getUTCMonth() + 1)).slice(-2) + "/" +
@@ -288,26 +290,35 @@
             ("0" + m.getUTCMinutes()).slice(-2) + ":" +
             ("0" + m.getUTCSeconds()).slice(-2);
 
-        if (m.getDay > 4) {
-            if (m.getHours() <= 8 && m.getHours() >= 22) {
+        if (m.getDay() < 5) {
+            if (m.getHours() <= 8 || m.getHours() >= 22) {
                 document.getElementById("demo").innerHTML = "Current time: &nbsp" + dateString + " &nbsp &nbsp &nbsp &nbsp The store is currently closed!";
                 document.getElementById("demo").classList.add("alert-danger");
             } else if (m.getHours() > 20 && m.getHours() < 22) {
                 document.getElementById("demo").innerHTML = "Current time: &nbsp" + dateString + " &nbsp &nbsp &nbsp &nbsp The store is closing soon!";
                 document.getElementById("demo").classList.add("alert-warning");
+            } else if (m.getHours() == 7) {
+                document.getElementById("demo").innerHTML = "Current time: &nbsp" + dateString + " &nbsp &nbsp &nbsp &nbsp The store is opening soon!";
+                document.getElementById("demo").classList.add("alert-warning");
             } else if (m.getHours() > 8 && m.getHours() < 22) {
                 document.getElementById("demo").innerHTML = "Current time: &nbsp" + dateString + "&nbsp &nbsp &nbsp The store is currently open!";
+            } else {
+                element.classList.remove("alert-success")
             }
         } else {
             if (m.getDay() == 0) {
                 document.getElementById("demo").innerHTML = "Current time: &nbsp" + dateString + " &nbsp &nbsp &nbsp &nbsp The store is not opened on sunday!";
                 document.getElementById("demo").classList.add("alert-info");
             }
-            else if (m.getHours() <= 6 && m.getHours() == 24) {
+            else if (m.getHours() <= 6 || m.getHours() == 24) {
                 document.getElementById("demo").innerHTML = "Current time: &nbsp" + dateString + " &nbsp &nbsp &nbsp &nbsp The store is currently closed!";
                 document.getElementById("demo").classList.add("alert-danger");
             } else if (m.getHours() > 22 && m.getHours() < 24) {
                 document.getElementById("demo").innerHTML = "Current time: &nbsp" + dateString + " &nbsp &nbsp &nbsp &nbsp The store is closing soon!";
+                document.getElementById("demo").classList.add("alert-warning");
+            }
+            else if (m.getHours() == 5) {
+                document.getElementById("demo").innerHTML = "Current time: &nbsp" + dateString + " &nbsp &nbsp &nbsp &nbsp The store is opening soon!";
                 document.getElementById("demo").classList.add("alert-warning");
             } else if (m.getHours() > 6 && m.getHours() < 24) {
                 document.getElementById("demo").innerHTML = "Current time: &nbsp" + dateString + "&nbsp &nbsp &nbsp The store is currently open!";
