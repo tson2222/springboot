@@ -10,8 +10,8 @@ import java.util.List;
 
 public interface CarRepository extends CrudRepository<Booking, Long> {
 
-    @Query("select startdate,enddate from Booking c")
-    List<Booking> findAllByDate(@Param("startdate") LocalDate date);
+//    @Query("select startdate,enddate from Booking c")
+//    List<Booking> findAllByDate(@Param("startdate") LocalDate date);
 
 }
 

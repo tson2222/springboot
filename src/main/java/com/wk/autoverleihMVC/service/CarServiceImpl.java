@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public class CarServiceImpl implements CarService {
-    //returns a list of all the cars are not booked for the dates "start" and "end", and in between
+    //returns a list of all the cars that are not booked for the dates "start" and "end", or in between
     @Override
     public List<Booking> isAvailable(List<Booking> bookingList, LocalDate start, LocalDate end) {
         List<Booking> carlist1 = new ArrayList<>();
