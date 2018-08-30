@@ -12,13 +12,10 @@
           integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/locale/af.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
-    <!--Custom CSS-->
+
     <style>
         .carousel-inner > .item > img {
-            margin: 0 auto;
+            margin: auto;
         }
 
         h4 {
@@ -50,7 +47,7 @@
         }
 
         .carousel {
-            background-image: url("http://blog.visme.co/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-028.jpg");
+            background-image: url("https://i.imgur.com/qkHjI9Y.png");
             border-radius: 55px 55px 55px 55px;
             overflow: hidden;
         }
@@ -154,7 +151,7 @@
 
             <div class="item">
                 <img src="http://purepng.com/public/uploads/large/purepng.com-bmwbmwcarluxurious-carbmw-cars-1701527416228gp3kh.png"
-                     alt="x" style="width:700px;height:465px;">
+                     alt="x" style="width:600px;height:465px;">
                 <div class="carousel-caption">
                     <h3 style="color: #dfff04;">Bmw 328i</h3>
                     <h4 style="color: #dfff04;">60$/day</h4>
@@ -164,7 +161,7 @@
             <div class="item">
                 <img src="https://assets.mbusa.com/vcm/MB/DigitalAssets/AMG_ThemePage/Responsive/1Man1Engine/GT-MODULE/2017-SUPERBOWL-AMG-GT-ROADSTER_GTC-D.png"
                      alt="y"
-                     style="width:700px;height:465px;">
+                     style="width:900px;height:465px;">
                 <div class="carousel-caption">
                     <h3 style="color: #dfff04;">Mercedes AMG</h3>
                     <h4 style="color: #dfff04;">120$/day</h4>
@@ -246,6 +243,7 @@
     </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
 <script>
 
     $(function () {
@@ -276,53 +274,48 @@
         });
     });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
 <script>
     setInterval(myFunction, 1000);
 
     function myFunction() {
-        var m = new Date();
+        var m = moment();
+        var momentString = moment().format('DD-MM-YYYY hh:mm:ss');
         var element = document.getElementById("demo");
-        var dateString =
-            m.getUTCFullYear() + "/" +
-            ("0" + (m.getUTCMonth() + 1)).slice(-2) + "/" +
-            ("0" + m.getUTCDate()).slice(-2) + " " +
-            ("0" + (m.getUTCHours() + 2)).slice(-2) + ":" +
-            ("0" + m.getUTCMinutes()).slice(-2) + ":" +
-            ("0" + m.getUTCSeconds()).slice(-2);
 
-        if (m.getDay() < 5) {
-            if (m.getHours() <= 8 || m.getHours() >= 22) {
-                document.getElementById("demo").innerHTML = "Current time: &nbsp" + dateString + " &nbsp &nbsp &nbsp &nbsp The store is currently closed!";
+        if (moment().format("d") < 5) {
+            if (m.format("k") <= 8 || m.format("k") >= 22) {
+                document.getElementById("demo").innerHTML = "Current time: &nbsp" + momentString + " &nbsp &nbsp &nbsp &nbsp The store is currently closed!";
                 document.getElementById("demo").classList.add("alert-danger");
-            } else if (m.getHours() > 20 && m.getHours() < 22) {
-                document.getElementById("demo").innerHTML = "Current time: &nbsp" + dateString + " &nbsp &nbsp &nbsp &nbsp The store is closing soon!";
+            } else if (m.format("k") > 20 && m.format("k") < 22) {
+                document.getElementById("demo").innerHTML = "Current time: &nbsp" + momentString + " &nbsp &nbsp &nbsp &nbsp The store is closing soon!";
                 document.getElementById("demo").classList.add("alert-warning");
-            } else if (m.getHours() == 7) {
-                document.getElementById("demo").innerHTML = "Current time: &nbsp" + dateString + " &nbsp &nbsp &nbsp &nbsp The store is opening soon!";
+            } else if (m.format("k") == 7) {
+                document.getElementById("demo").innerHTML = "Current time: &nbsp" + momentString + " &nbsp &nbsp &nbsp &nbsp The store is opening soon!";
                 document.getElementById("demo").classList.add("alert-warning");
-            } else if (m.getHours() > 8 && m.getHours() < 22) {
-                document.getElementById("demo").innerHTML = "Current time: &nbsp" + dateString + "&nbsp &nbsp &nbsp The store is currently open!";
+            } else if (m.format("k") > 8 && m.format("k") < 22) {
+                document.getElementById("demo").innerHTML = "Current time: &nbsp" + momentString + "&nbsp &nbsp &nbsp The store is currently open!";
             } else {
                 element.classList.remove("alert-success")
             }
-        } else {
-            if (m.getDay() == 0) {
-                document.getElementById("demo").innerHTML = "Current time: &nbsp" + dateString + " &nbsp &nbsp &nbsp &nbsp The store is not opened on sunday!";
-                document.getElementById("demo").classList.add("alert-info");
-            }
-            else if (m.getHours() <= 6 || m.getHours() == 24) {
-                document.getElementById("demo").innerHTML = "Current time: &nbsp" + dateString + " &nbsp &nbsp &nbsp &nbsp The store is currently closed!";
-                document.getElementById("demo").classList.add("alert-danger");
-            } else if (m.getHours() > 22 && m.getHours() < 24) {
-                document.getElementById("demo").innerHTML = "Current time: &nbsp" + dateString + " &nbsp &nbsp &nbsp &nbsp The store is closing soon!";
-                document.getElementById("demo").classList.add("alert-warning");
-            }
-            else if (m.getHours() == 5) {
-                document.getElementById("demo").innerHTML = "Current time: &nbsp" + dateString + " &nbsp &nbsp &nbsp &nbsp The store is opening soon!";
-                document.getElementById("demo").classList.add("alert-warning");
-            } else if (m.getHours() > 6 && m.getHours() < 24) {
-                document.getElementById("demo").innerHTML = "Current time: &nbsp" + dateString + "&nbsp &nbsp &nbsp The store is currently open!";
-            }
+            } else {
+                if (m.format("d") == 0) {
+                    document.getElementById("demo").innerHTML = "Current time: &nbsp" + momentString + " &nbsp &nbsp &nbsp &nbsp The store is not opened on sunday!";
+                    document.getElementById("demo").classList.add("alert-info");
+                }
+                else if (m.format("k") <= 6 || m.format("k") == 24) {
+                    document.getElementById("demo").innerHTML = "Current time: &nbsp" + momentString + " &nbsp &nbsp &nbsp &nbsp The store is currently closed!";
+                    document.getElementById("demo").classList.add("alert-danger");
+                } else if (m.format("k") > 22 && m.format("k") < 24) {
+                    document.getElementById("demo").innerHTML = "Current time: &nbsp" + momentString + " &nbsp &nbsp &nbsp &nbsp The store is closing soon!";
+                    document.getElementById("demo").classList.add("alert-warning");
+                }
+                else if (m.format("k") == 5) {
+                    document.getElementById("demo").innerHTML = "Current time: &nbsp" + momentString + " &nbsp &nbsp &nbsp &nbsp The store is opening soon!";
+                    document.getElementById("demo").classList.add("alert-warning");
+                } else if (m.format("k") > 6 && m.format("k") < 24) {
+                    document.getElementById("demo").innerHTML = "Current time: &nbsp" + momentString + "&nbsp &nbsp &nbsp The store is currently open!";
+                }
         }
     }
 
