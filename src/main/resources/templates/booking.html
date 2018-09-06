@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8"/>
+    <title>Car Details</title>
+    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 52px;
+            background-image: url("http://www.designbolts.com/wp-content/uploads/2012/12/White-Gradient-Squares-Seamless-Patterns-For-Website-Backgrounds.jpg");
+        }
+
+        .btn-default, ol {
+            background-image: url("http://www.designbolts.com/wp-content/uploads/2013/02/Old-Husk-Grey-Seamless-Pattern-For-Website-Background.jpg");
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <ol class="thumbnail">
+        <div class="btn btn-default"><a href="#" th:href="${'/bookings'}">Home</a></div>
+    </ol>
+    <div class="row"><h2>Booking Details</h2></div>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">ID:</label>
+            <div class="col-sm-10">
+                <p class="form-control-static" th:text="${booking.id }">Car ID</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Name:</label>
+            <div class="col-sm-10">
+                <p class="form-control-static" th:text="${booking.name}">Car Name</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Speed:</label>
+            <div class="col-sm-10">
+                <p class="form-control-static" th:text="${booking.speed}">Car Speed</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Start Date:</label>
+            <div class="col-sm-10">
+                <p class="form-control-static" th:text="${booking.startdate}">Car Date</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">End Date:</label>
+            <div class="col-sm-10">
+                <p class="form-control-static" th:text="${booking.enddate}">Car Date</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <a href="#" class="btn btn-default" th:href="${'/booking/edit/' + booking.id}">Edit</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

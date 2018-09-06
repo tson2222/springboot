@@ -5,23 +5,30 @@
     <title>Available Cars</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            background-image: url("http://www.designbolts.com/wp-content/uploads/2012/12/White-Gradient-Squares-Seamless-Patterns-For-Website-Backgrounds.jpg");
+        }
+        </style>
 </head>
 <body>
-<div class="container" style="background-color:#5bc0de">
+<div class="container">
     <table class="table">
         <h2>Cars available on that date</h2>
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Start Date</th>
+            <th>End Date</th>
         </tr>
-        <tr th:each="car : ${carlist2}">
-            <td th:text="${car.id}">Car ID</td>
-            <td th:text="${car.name}">Car Name</td>
-            <td th:text="${car.date}">Car Date</td>
+        <tr th:each="booking : ${carlist}">
+            <td th:text="${booking.id}">Car ID</td>
+            <td th:text="${booking.name}">Car Name</td>
+            <td th:text="${booking.startdate}">Car Date</td>
+            <td th:text="${booking.enddate}">Car Date</td>
         </tr>
     </table>
-    <a th:href="${'/cars'}" class="btn-danger" >Home</a>
+    <a th:href="${'/'}" class="btn btn-success">Home</a>
 </div>
 </body>
 </html>
