@@ -9,4 +9,6 @@ import java.time.LocalDate;
 public interface CarService {
 
     List<Booking> isAvailable(List<Booking> bookingList, LocalDate start, LocalDate end);
+
+    boolean dateValidator(LocalDate start, LocalDate end);
 }

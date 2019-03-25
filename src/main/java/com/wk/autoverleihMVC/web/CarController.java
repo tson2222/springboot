@@ -2,7 +2,7 @@ package com.wk.autoverleihMVC.web;
 
 import com.wk.autoverleihMVC.model.Booking;
 import com.wk.autoverleihMVC.repository.CarRepository;
-import com.wk.autoverleihMVC.service.CarServiceImpl;
+import com.wk.autoverleihMVC.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -18,10 +18,10 @@ import java.util.List;
 public class CarController {
 
     private final CarRepository carRepository;
-    private final CarServiceImpl carService;
+    private final CarService carService;
 
     @Autowired
-    public CarController(CarRepository carRepository, CarServiceImpl carService) {
+    public CarController(CarRepository carRepository, CarService carService) {
         this.carRepository = carRepository;
         this.carService = carService;
     }
